@@ -10,15 +10,15 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU Affero General Public License along with this program.  If not, see <http://www.gnu.org/licenses
 ****************************************************/
 
-#include <M5StickC.h>
+#include <M5StickCPlus2.h>
 
 #include "Face.h"
 
-#define WIDTH  80
-#define HEIGHT 168
+#define WIDTH  135
+#define HEIGHT 240
 #define EYE 40
 
-TFT_eSprite Buffer = TFT_eSprite(&M5.Lcd);
+LGFX_Sprite Buffer = LGFX_Sprite(&M5.Lcd);
 
 Face face(Buffer, HEIGHT, WIDTH, EYE);
 
@@ -39,14 +39,14 @@ void setup(void) {
 	face.Behavior.Clear();
 	face.Behavior.SetEmotion(eEmotions::Normal, 1.0);
 
-	M5.MPU6886.Init();
+	M5.Imu.init();
 }
 
 void loop() {
 	float accX = 0;
 	float accY = 0;
 	float accZ = 0;
-	M5.MPU6886.getAccelData(&accX, &accY, &accZ);
+	M5.Imu.getAccelData(&accX, &accY, &accZ);
 
 	if (accZ > 0.8 || accZ < -0.8)
 	{
@@ -74,4 +74,3 @@ void loop() {
 	face.Update();
 	return;
 }
-

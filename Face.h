@@ -32,12 +32,12 @@ You should have received a copy of the GNU Affero General Public License along w
 class Face
 {
 protected:
-	TFT_eSprite& _buffer;
+	LGFX_Sprite& _buffer;
 
 	void Draw();
 
 public:
-	Face(TFT_eSprite& buffer, uint16_t screenWidth, uint16_t screenHeight, uint16_t eyeSize);
+	Face(LGFX_Sprite& buffer, uint16_t screenWidth, uint16_t screenHeight, uint16_t eyeSize);
 
 	uint32_t Background;
 

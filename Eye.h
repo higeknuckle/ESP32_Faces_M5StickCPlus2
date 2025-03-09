@@ -62,7 +62,7 @@ public:
 	void ApplyPreset(const EyeConfig preset);
 	void TransitionTo(const EyeConfig preset);
 
-	void Draw(TFT_eSprite& buffer);
+	void Draw(LGFX_Sprite& buffer);
 };
 
 

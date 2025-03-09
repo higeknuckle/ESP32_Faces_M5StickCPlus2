@@ -19,7 +19,7 @@ You should have received a copy of the GNU Affero General Public License along w
 #include "WProgram.h"
 #endif
 
-#include <M5StickC.h>
+#include <M5StickCPlus2.h>
 #include "EyeConfig.h"
 
 
@@ -34,7 +34,7 @@ class EyeDrawer
 
 public:
 
-	static void Draw(TFT_eSprite& buffer, int16_t centerX, int16_t centerY, EyeConfig* config)
+	static void Draw(LGFX_Sprite& buffer, int16_t centerX, int16_t centerY, EyeConfig* config)
 	{
 		int32_t delta_y_top = config->Height * config->Slope_Top / 2.0;
 		int32_t delta_y_bottom = config->Height * config->Slope_Bottom / 2.0;
@@ -196,7 +196,7 @@ public:
 
 	}
 
-	static void FilleEllipseCorner(TFT_eSprite& buffer, CornerType corner, int16_t x0, int16_t y0, int32_t rx, int32_t ry, uint16_t color)
+	static void FilleEllipseCorner(LGFX_Sprite& buffer, CornerType corner, int16_t x0, int16_t y0, int32_t rx, int32_t ry, uint16_t color)
 	{
 		if (rx < 2) return;
 		if (ry < 2) return;
@@ -309,12 +309,12 @@ public:
 		}
 	}
 
-	static void FillReactangle(TFT_eSprite& buffer, int32_t x0, int32_t y0, int32_t x1, int32_t y1, int32_t color)
+	static void FillReactangle(LGFX_Sprite& buffer, int32_t x0, int32_t y0, int32_t x1, int32_t y1, int32_t color)
 	{
 		buffer.fillRect(x0, y0, x1 - x0, y1 - y0, color);
 	}
 
-	static void FillRectangularTriangle(TFT_eSprite& buffer, int32_t x0, int32_t y0, int32_t x1, int32_t y1, int32_t color)
+	static void FillRectangularTriangle(LGFX_Sprite& buffer, int32_t x0, int32_t y0, int32_t x1, int32_t y1, int32_t color)
 	{
 		buffer.fillTriangle(x0, y0, x1, y1, x1, y0, color);
 	}

@@ -13,7 +13,7 @@ You should have received a copy of the GNU Affero General Public License along w
 
 #include "Face.h"
 
-Face::Face(TFT_eSprite& buffer, uint16_t screenWidth, uint16_t screenHeight, uint16_t eyeSize) 
+Face::Face(LGFX_Sprite& buffer, uint16_t screenWidth, uint16_t screenHeight, uint16_t eyeSize) 
 	: LeftEye(*this), RightEye(*this), Blink(*this), Look(*this), Behavior(*this), Expression(*this), _buffer(buffer)
 {
 	Width = screenWidth;

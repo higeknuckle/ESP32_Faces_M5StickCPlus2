@@ -50,7 +50,7 @@ void Eye::Update()
 	BlinkTransformation.Update();
 }
 
-void Eye::Draw(TFT_eSprite& buffer)
+void Eye::Draw(LGFX_Sprite& buffer)
 {
 	Update();
 	EyeDrawer::Draw(buffer, CenterX, CenterY, FinalConfig);
